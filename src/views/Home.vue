@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <div>{{ someTestData }}</div>
+    <div>
+      <input type="text" v-model="someTestData" />
+      <div>{{ someTestData }}</div>
+    </div>
   </div>
 </template>
 
