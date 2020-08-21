@@ -6,13 +6,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent, ref } from "@vue/composition-api";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Home",
-  data() {
+  setup() {
+    const someTestData = ref("Helloworld");
     return {
-      someTestData: "Helloworld",
+      someTestData,
     };
   },
 });
