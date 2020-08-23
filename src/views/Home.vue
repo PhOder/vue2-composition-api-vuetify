@@ -3,17 +3,21 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <div>
       <v-text-field label="Hello" v-model="someTestData"></v-text-field>
-      <input type="text" v-model="someTestData" />
-      <div>{{ someTestData }}</div>
+      <Test />
+      <Test msg="Helloworld" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "@vue/composition-api";
+import Test from "@/components/Test.vue";
 
 export default defineComponent({
   name: "Home",
+  components: {
+    Test,
+  },
   setup() {
     const someTestData = ref("Helloworld");
     return {
