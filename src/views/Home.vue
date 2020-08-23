@@ -2,6 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <div>
+      <v-text-field label="Hello" v-model="someTestData"></v-text-field>
       <input type="text" v-model="someTestData" />
       <div>{{ someTestData }}</div>
     </div>
