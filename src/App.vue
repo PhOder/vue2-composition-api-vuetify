@@ -3,6 +3,7 @@
     <v-app-bar app id="nav">
       <v-toolbar-title>App</v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-switch v-model="$vuetify.theme.dark" label="Dark">Test</v-switch>
       <v-btn to="/">Home</v-btn>
       <v-btn to="/about">About</v-btn>
     </v-app-bar>
@@ -11,5 +12,18 @@
     </v-main>
   </v-app>
 </template>
+
+<script lang="ts">
+import { defineComponent, ref } from "@vue/composition-api";
+
+export default defineComponent({
+  setup() {
+    const dark = ref(false);
+    return {
+      dark,
+    };
+  },
+});
+</script>
 
 <style lang="scss"></style>
