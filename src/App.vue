@@ -10,8 +10,6 @@
       <v-btn class="ml-2" text to="/about">About</v-btn>
       <v-btn v-if="!loggedIn" class="ml-2" text @click="login">Login</v-btn>
       <v-btn v-if="loggedIn" class="ml-2" text @click="logout">Logout</v-btn>
-      {{ loggedIn }}
-      {{ loggedIn2 }}
     </v-app-bar>
     <v-main>
       <router-view />
@@ -28,12 +26,10 @@ export default defineComponent({
     const dark = ref(false);
 
     const { loggedIn, login, logout } = useUser();
-    const { loggedIn: loggedIn2 } = useUser();
 
     return {
       dark,
       loggedIn,
-      loggedIn2,
       login,
       logout,
     };
