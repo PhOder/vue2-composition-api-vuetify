@@ -11,6 +11,7 @@
       <v-btn v-if="!loggedIn" class="ml-2" text @click="login">Login</v-btn>
       <v-btn v-if="loggedIn" class="ml-2" text @click="logout">Logout</v-btn>
       {{ loggedIn }}
+      {{ loggedIn2 }}
     </v-app-bar>
     <v-main>
       <router-view />
@@ -20,21 +21,19 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "@vue/composition-api";
+import useUser from "@/composables/useUser";
 
 export default defineComponent({
   setup() {
     const dark = ref(false);
 
-    const loggedIn = ref(false);
-    function login() {
-      loggedIn.value = true;
-    }
-    function logout() {
-      loggedIn.value = false;
-    }
+    const { loggedIn, login, logout } = useUser();
+    const { loggedIn: loggedIn2 } = useUser();
+
     return {
       dark,
       loggedIn,
+      loggedIn2,
       login,
       logout,
     };
