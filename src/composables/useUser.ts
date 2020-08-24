@@ -1,8 +1,15 @@
+// this is needed because of vue/composition-api limitations and will not be necessary with vue3
+import Vue from "vue";
+import VueCompositionAPI from "@vue/composition-api";
+Vue.use(VueCompositionAPI);
+
 import { ref } from "@vue/composition-api";
 
+// put loggedIn outside of function so as to not create a new 'ref' each time useUser() is called
+// loggedIn will be shared state betweeen each place using the useUser composable
+const loggedIn = ref(false);
+
 export default function() {
-  // if 'loggedIn' is scoped inside the function, each call to useUser() creates a new 'ref'
-  const loggedIn = ref(false);
   function login() {
     loggedIn.value = true;
   }
