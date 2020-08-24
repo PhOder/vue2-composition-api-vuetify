@@ -4,7 +4,7 @@
     <div>
       <v-text-field label="Hello" v-model="someTestData"></v-text-field>
       <Test />
-      <Test msg="Helloworld" />
+      <Test :msg="someTestData" />
     </div>
   </v-container>
 </template>
