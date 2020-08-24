@@ -8,6 +8,9 @@
       >
       <v-btn class="ml-2" text to="/">Home</v-btn>
       <v-btn class="ml-2" text to="/about">About</v-btn>
+      <v-btn v-if="!loggedIn" class="ml-2" text @click="login">Login</v-btn>
+      <v-btn v-if="loggedIn" class="ml-2" text @click="logout">Logout</v-btn>
+      {{ loggedIn }}
     </v-app-bar>
     <v-main>
       <router-view />
@@ -21,8 +24,19 @@ import { defineComponent, ref } from "@vue/composition-api";
 export default defineComponent({
   setup() {
     const dark = ref(false);
+
+    const loggedIn = ref(false);
+    function login() {
+      loggedIn.value = true;
+    }
+    function logout() {
+      loggedIn.value = false;
+    }
     return {
       dark,
+      loggedIn,
+      login,
+      logout,
     };
   },
 });
